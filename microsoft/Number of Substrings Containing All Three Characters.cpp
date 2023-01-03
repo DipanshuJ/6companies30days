@@ -1,34 +1,12 @@
-#include <bits/stdc++.h>
-using namespace std;
- 
-typedef long long ll;
- 
-#define vi vector<int>
-#define vll vector<long long>
-#define pii pair<int,int>
-#define pll pair<long long,long long>
-#define f(i,a,b) for(i=a;i<b;i++)
-#define fi(i,a,b) for(int i=a;i<b;i++)
-#define fd(i,a,b) for(i=a;i>=b;i--)
-#define fdi(i,a,b) for(int i=a;i>=b;i--)
-#define all(x) x.begin(),x.end()
-#define imin INT_MIN
-#define imax INT_MAX
-#define llmin LONG_LONG_MIN
-#define llmax LONG_LONG_MAX
-#define sz(a) a.size()
- 
-
-void solve(){
-    //
-}
- 
-int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(nullptr);
-	cout.tie(nullptr);
-	int test=1;
-	cin>>test;
-	while(test--) solve();
-	return 0;
-}
+class Solution {
+public:
+    int numberOfSubstrings(string s) {
+        int lower=0,cnt[3]={0},res=0;
+        for(int i=0;i<s.length();i++){
+            cnt[s[i]-'a']++;
+            while(cnt[s[lower]-'a']>1){ cnt[s[lower]-'a']--; lower++; }
+            if(cnt[0]>0 && cnt[1]>0 && cnt[2]>0) res += lower+1;
+        }
+        return res;
+    }
+};
