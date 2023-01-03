@@ -20,6 +20,7 @@ typedef long long ll;
  
 
 void solve(){
+    //
 }
  
 int main() {
